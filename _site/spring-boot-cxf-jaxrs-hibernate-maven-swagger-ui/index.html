@@ -1,0 +1,118 @@
+<!DOCTYPE html> <html> <head> <meta charset="utf-8"/> <meta content='text/html; charset=utf-8' http-equiv='Content-Type'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'> <meta name="author" content="Massoud Afrashteh"/> <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]--> <link rel="stylesheet" type="text/css" href="/style.css"/> <link rel="alternate" type="application/rss+xml" title="Massoud Afrashteh - loves(Java, BigData, Linux)" href="/feed.xml"/> <title>Spring Boot, Apache CXF, Swagger under JAX-RS | Massoud Afrashteh</title> <meta property="og:title" content="Spring Boot, Apache CXF, Swagger under JAX-RS"/> <meta property="og:locale" content="en_US"/> <meta name="description" content="This tutorial is about: Making a standard and enterprise JAX-RS Web Service with Spring Boot, Apache CXF, MySQL, and Swagger UI."/> <meta property="og:description" content="This tutorial is about: Making a standard and enterprise JAX-RS Web Service with Spring Boot, Apache CXF, MySQL, and Swagger UI."/> <link rel="canonical" href="http://localhost:4000/spring-boot-cxf-jaxrs-hibernate-maven-swagger-ui/"/> <meta property="og:url" content="http://localhost:4000/spring-boot-cxf-jaxrs-hibernate-maven-swagger-ui/"/> <meta property="og:site_name" content="Massoud Afrashteh"/> <meta property="og:type" content="article"/> <meta property="article:published_time" content="2017-06-22T12:00:40+04:30"/> <script type="application/ld+json">
+{"@context":"http://schema.org","@type":"BlogPosting","headline":"Spring Boot, Apache CXF, Swagger under JAX-RS","datePublished":"2017-06-22T12:00:40+04:30","dateModified":"2017-06-22T12:00:40+04:30","description":"This tutorial is about: Making a standard and enterprise JAX-RS Web Service with Spring Boot, Apache CXF, MySQL, and Swagger UI.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/spring-boot-cxf-jaxrs-hibernate-maven-swagger-ui/"},"url":"http://localhost:4000/spring-boot-cxf-jaxrs-hibernate-maven-swagger-ui/"}</script> </head> <body> <div class="wrapper-masthead"> <div class="container"> <header class="masthead clearfix"> <a href="/" class="site-avatar"><img src="/images/MassoudAfrashteh70.jpg"/></a> <div class="site-info"> <h2 class="site-name"><a href="/">Massoud Afrashteh</a></h2> <p class="site-description">loves(Java, BigData, Linux)</p> </div> <nav> <a href="/tags">Tags</a> <a href="/about">About</a> </nav> </header> </div> </div> <div id="main" role="main" class="container"> <article class="post"> <h1>Spring Boot, Apache CXF, Swagger under JAX-RS</h1> <div class="date"> Updated on June 22, 2017 </div> <br> <div class="entry"> <p>This tutorial is about: Making a standard and enterprise JAX-RS Web Service with Spring Boot, Apache CXF, MySQL, and Swagger UI.</p> <h3 id="audience">Audience</h3> <p>Java Developers who know about Spring and REST standards.</p> <h3 id="what-is-a-modular-application">What is a Modular Application?</h3> <p>An Enterprise Software always will change after the version 1 (MVP) we should consider the software growth. It’s absolutely better to separate the Tiers. In this case, I put Data Access and Service layers in <a href="https://github.com/massoudAfrashteh/code/blob/master/java/spring-dans">Spring-DANS</a> and RESTful Module as a part of Web Tier in another Module.</p> <h3 id="why-used-spring-boot">Why used Spring Boot?</h3> <ol> <li>I’m not a fan of XML configuration and I like to configure Java Applications with Java Code.</li> <li>Spring will manage the Application Server which is an Embedded Tomcat in Spring Boot and you don’t need to be involved with an Application Server like Tomcat, JBoss, or etc.</li> <li>Most of the Companies in the World using Spring Boot for creating RESTful Applications because it’s easy to Develop and Deploy an Enterprise Application with Spring Boot.</li> </ol> <h3 id="why-should-we-use-swagger-ui-on-our-web-services">Why should we use Swagger UI on our Web Services?</h3> <p>Swagger UI is a very cool tool that can be placed on Back-End developers and Front-End developers. You just need to configure it with Spring Boot and see Swagger will generate some JSON, HTML, CSS, and JavaScript lines to show what Resources you have on your RESTful Web Service.</p> <h3 id="what-is-the-killer-option-of-cxf-rather-than-spring-rest">What is the Killer Option of CXF rather than Spring Rest?</h3> <p>We have a standard in Java that called JAX-RS which is an API for making RESTful Web Services, and we have some implementations of this API like Jersey, Apache CXF, RESTEasy, and etc. It’s highly recommended to develop RESUful Web Services with these standard Frameworks because Spring Framework has its own implementation of REST which is completely different than standard ones.</p> <h3 id="and-why-used-jackson-not-gson">And why used Jackson not Gson?</h3> <p>It’s compatible with all JAX-RS frameworks like Jersey, Apache CXF, RESTEasy, Restlet, and Spring framework and the another thing is that <a href="https://spring.io/blog/2014/12/02/latest-jackson-integration-improvements-in-spring">since Spring 4.x Jackson support has been improved</a> That means you just need to put Jackson dependency in your project then it will automatically do the Parsing.</p> <h3 id="step-1-add-maven-dependencies-to-our-project">Step 1: Add Maven Dependencies to our project</h3> <p>It’s the time to create a Maven Project and put the below dependencies on your POM.xml file.</p> <figure class="highlight"><pre><code class="language-xml" data-lang="xml">  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;spring-boot.version&gt;</span>1.5.3.RELEASE<span class="nt">&lt;/spring-boot.version&gt;</span>
+    <span class="nt">&lt;spring-dans.version&gt;</span>0.0.1<span class="nt">&lt;/spring-dans.version&gt;</span>
+    <span class="nt">&lt;tomcat-dbcp.version&gt;</span>8.5.14<span class="nt">&lt;/tomcat-dbcp.version&gt;</span>
+    <span class="nt">&lt;mysql-driver.version&gt;</span>6.0.6<span class="nt">&lt;/mysql-driver.version&gt;</span>
+    <span class="nt">&lt;cxf.version&gt;</span>3.1.11<span class="nt">&lt;/cxf.version&gt;</span>
+    <span class="nt">&lt;swagger-ui.version&gt;</span>3.0.7<span class="nt">&lt;/swagger-ui.version&gt;</span>
+    <span class="nt">&lt;jackson.version&gt;</span>2.8.8<span class="nt">&lt;/jackson.version&gt;</span>
+    <span class="nt">&lt;junit.version&gt;</span>4.12<span class="nt">&lt;/junit.version&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="c">&lt;!-- spring dependencies --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.massoudafrashteh.code.spring.dans<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-dans<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${spring-dans.version}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-web<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${spring-boot.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.springframework.boot<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>spring-boot-starter-data-jpa<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${spring-boot.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- Tomcat Connection Pooling - used for cache the Database Connection --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.tomcat<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>tomcat-dbcp<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${tomcat-dbcp.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- MySQL Database Connector --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>mysql<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>mysql-connector-java<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${mysql-driver.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- Apache CXF dependencies --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>cxf-spring-boot-starter-jaxrs<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${cxf.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.apache.cxf<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>cxf-rt-rs-service-description-swagger<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${cxf.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.webjars<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>swagger-ui<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${swagger-ui.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- Jackson dependency - used for convert Java Objects to JSON and vice versa --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>com.fasterxml.jackson.jaxrs<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>jackson-jaxrs-json-provider<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${jackson.version}<span class="nt">&lt;/version&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+    <span class="c">&lt;!-- unit testing dependencies --&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>${junit.version}<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span></code></pre></figure> <h3 id="step-2-database-configurations">Step 2: Database configurations</h3> <p>It’s so easy to configure Database connection in Spring Boot the only thing that you need is that put your configurations on src/main/resources/application.properties</p> <figure class="highlight"><pre><code class="language-properties" data-lang="properties"><span class="c"># Datasource
+</span><span class="err">spring.datasource.driver-class-</span><span class="py">name</span><span class="p">=</span><span class="s">com.mysql.cj.jdbc.Driver</span>
+<span class="py">spring.datasource.url</span><span class="p">=</span><span class="s">jdbc:mysql://localhost:3306/spring_cxf?createDatabaseIfNotExist=true</span>
+<span class="py">spring.datasource.username</span><span class="p">=</span><span class="s">username # Never use root user in production</span>
+<span class="py">spring.datasource.password</span><span class="p">=</span><span class="s">password</span>
+
+<span class="c"># Hibernate
+</span><span class="err">spring.jpa.hibernate.ddl-</span><span class="py">auto</span><span class="p">=</span><span class="s">create # Change if after first run to "update", will drop your tables every time otherwise</span>
+<span class="py">spring.jpa.properties.hibernate.show_sql</span><span class="p">=</span><span class="s">true</span></code></pre></figure> <p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html#boot-features-connect-to-production-database">Spring Boot uses Tomcat Pooling</a> by default which is the best Pooling software in Java.</p> <h3 id="step-3-configuration-of-swagger-ui">Step 3: Configuration of Swagger UI</h3> <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@Configuration</span>
+<span class="nd">@EnableAutoConfiguration</span>
+<span class="nd">@ComponentScan</span><span class="o">(</span><span class="n">basePackages</span> <span class="o">=</span> <span class="s">"com"</span><span class="o">)</span>
+<span class="nd">@EntityScan</span><span class="o">(</span><span class="n">basePackages</span> <span class="o">=</span> <span class="s">"com.massoudafrashteh.code.spring.dans.domain"</span><span class="o">)</span>
+<span class="nd">@EnableJpaRepositories</span><span class="o">(</span><span class="n">basePackages</span> <span class="o">=</span> <span class="s">"com.massoudafrashteh.code.spring.dans.repository"</span><span class="o">)</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">CxfConfig</span> <span class="o">{</span>
+
+  <span class="nd">@Autowired</span>
+  <span class="kd">private</span> <span class="n">Bus</span> <span class="n">bus</span><span class="o">;</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="n">Server</span> <span class="nf">rsServer</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">final</span> <span class="n">JAXRSServerFactoryBean</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="k">new</span> <span class="n">JAXRSServerFactoryBean</span><span class="o">();</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setProvider</span><span class="o">(</span><span class="k">new</span> <span class="n">JacksonJsonProvider</span><span class="o">());</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setProvider</span><span class="o">(</span><span class="n">getExceptionHandler</span><span class="o">());</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setBus</span><span class="o">(</span><span class="n">bus</span><span class="o">);</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setAddress</span><span class="o">(</span><span class="s">"/"</span><span class="o">);</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setServiceBeans</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="n">asList</span><span class="o">(</span><span class="n">indexController</span><span class="o">(),</span> <span class="n">userController</span><span class="o">()));</span>
+    <span class="n">endpoint</span><span class="o">.</span><span class="na">setFeatures</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">Swagger2Feature</span><span class="o">()));</span>
+    <span class="k">return</span> <span class="n">endpoint</span><span class="o">.</span><span class="na">create</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="n">ExceptionHandler</span> <span class="nf">getExceptionHandler</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">ExceptionHandler</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="n">IndexController</span> <span class="nf">indexController</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">IndexController</span><span class="o">();</span>
+  <span class="o">}</span>
+
+  <span class="nd">@Bean</span>
+  <span class="kd">public</span> <span class="n">UserController</span> <span class="nf">userController</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nf">UserController</span><span class="o">();</span>
+  <span class="o">}</span></code></pre></figure> <p>The default address of API is <strong>/services</strong> to <a href="https://github.com/massoudAfrashteh/code/blob/master/java/spring-boot-cxf/restful/src/main/java/starter/CxfConfig.java">change the default CXF API address</a> from <em>/services</em> to <em>/api</em> (or anything that you like) just check my Github profile :)</p> <h3 id="step-4-spring-boot-starter-method">Step 4: Spring Boot starter method</h3> <p>I prefer to keep Spring Boot starter method out of other configuration classes and put your Beans on other Classes.</p> <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="nd">@SpringBootApplication</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Starter</span> <span class="o">{</span>
+  <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">SpringApplication</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">CxfConfig</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">args</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span></code></pre></figure> <h3 id="step-5-run-spring-boot">Step 5: Run Spring Boot</h3> <p>It’s time to see what we have done, we can just run a Boot project with <strong>mvn spring-boot:run</strong> or use Eclipse or any other IDE that you like. If your Application Is running on PORT 8080 just open <strong>http://localhost:8080/services/services</strong> then you will see your API links and click the Swagger Link.</p> <table align="center" class="image centerized"> <caption align="bottom">Final view of running Swagger UI with Spring Boot and Apache CXF</caption> <tr><td><img src="/images/spring-boot-cxf-swagger-ui.png" alt="Final view of running Swagger UI with Spring Boot and Apache CXF"/></td></tr> </table> <h3 id="any-problem">Any problem?</h3> <p>Just <a href="https://github.com/massoudAfrashteh/code/tree/master/java/spring-boot-cxf">git clone Spring CXF project</a> and run it on your Machine.</p> <p>Good Luck :)</p> <br> <br> <div class="post-categories">Tags: <a href="/tags/#spring-boot">spring-boot</a> &nbsp; <a href="/tags/#spring-dans">spring-dans</a> &nbsp; <a href="/tags/#apache-cxf">apache-cxf</a> &nbsp; <a href="/tags/#restful">restful</a> &nbsp; <a href="/tags/#jax-rs">jax-rs</a> &nbsp; <a href="/tags/#maven">maven</a> &nbsp; <a href="/tags/#swagger-ui">swagger-ui</a> </div> </div> <div class="comments"> <div id="disqus_thread"></div> <script type="text/javascript">var disqus_shortname="http-code-massoudafrashteh-com";!function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src="//"+disqus_shortname+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)}();</script> <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript> </div> </article> </div> <div class="wrapper-footer"> <div class="container"> <footer class="footer"> <a href="https://github.com/massoudafrashteh"><i class="svg-icon github"></i></a> <a href="mailto:massoud.afrashteh@gmail.com"><i class="svg-icon email"></i></a> <a href="https://www.linkedin.com/in/massoudafrashteh"><i class="svg-icon linkedin"></i></a> </footer> </div> </div> <script>!function(e,a,t,n,g,o,c){e.GoogleAnalyticsObject=g,e[g]=e[g]||function(){(e[g].q=e[g].q||[]).push(arguments)},e[g].l=1*new Date,o=a.createElement(t),c=a.getElementsByTagName(t)[0],o.async=1,o.src=n,c.parentNode.insertBefore(o,c)}(window,document,"script","//www.google-analytics.com/analytics.js","ga"),ga("create","UA-98692751-1","auto"),ga("send","pageview",{page:"/spring-boot-cxf-jaxrs-hibernate-maven-swagger-ui/",title:"Spring Boot, Apache CXF, Swagger under JAX-RS"});</script> </body> </html>
