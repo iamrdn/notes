@@ -180,8 +180,8 @@ Just [git clone Spring CXF project][git-clone-Spring-CXF-project] and run it on 
 
 Good Luck :)
 
-[Spring-DANS]: https://github.com/massoudAfrashteh/code/blob/master/java/spring-dans
+[Spring-DANS]: https://github.com/massoudAfrashteh/code/tree/master/java/spring-maven-modules/spring-dans
 [since-Spring-4.x-Jackson-support-has-been-improved]: https://spring.io/blog/2014/12/02/latest-jackson-integration-improvements-in-spring
 [Spring-Boot-uses-Tomcat-Pooling]: https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html#boot-features-connect-to-production-database
-[change-the-default-CXF-API-address]: https://github.com/massoudAfrashteh/code/blob/master/java/spring-boot-cxf/restful/src/main/java/starter/CxfConfig.java
-[git-clone-Spring-CXF-project]: https://github.com/massoudAfrashteh/code/tree/master/java/spring-boot-cxf
+[change-the-default-CXF-API-address]: https://github.com/massoudAfrashteh/code/blob/master/java/spring-maven-modules/spring-boot-cxf/restful/src/main/java/starter/CxfConfig.java
+[git-clone-Spring-CXF-project]: https://github.com/massoudAfrashteh/code/tree/master/java/spring-maven-modules/spring-boot-cxf
