@@ -19,4 +19,4 @@ Cassandra, Redis, MongoDB, Hadoop, Kafka, Elasticsearch
 
 
 
-[Massoud-Afrashteh-CV]: http://code.massoudafrashteh.com/MassoudAfrashteh_CV.pdf
+[Massoud-Afrashteh-CV]: /cv
