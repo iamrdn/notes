@@ -80,7 +80,6 @@ plugins:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-minifier # Minifies HTML, XML, CSS, and Javascript both inline and as separate files utilising yui-compressor and htmlcompressor.
   - jekyll-seo-tag
-  - jekyll-redirect-from
 
 
 # Exclude these files from your production _site
