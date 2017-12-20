@@ -14,9 +14,3 @@ Mockito, JPA, JDBC, Hibernate, JSP, JSTL, Thymeleaf, HTML, CSS, Git
 Cassandra, Redis, MongoDB, Hadoop, Kafka, Elasticsearch
 <br>• Operation: Kubernetes, Docker Swarm, AWS, GAE, Tomcat, WildFly, Nginx, GNU/Linux
 <br>
-<br>Latest version of [Massoud Afrashteh CV][Massoud-Afrashteh-CV]
-<br>
-
-
-
-[Massoud-Afrashteh-CV]: /cv
