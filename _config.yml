@@ -43,7 +43,7 @@ google_analytics: UA-98692751-1
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
 url: 
-production_url: http://code.massoudafrashteh.com
+production_url: https://code.massoudafrashteh.com
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)

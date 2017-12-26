@@ -1,1 +1,1 @@
-Sitemap: http://code.massoudafrashteh.com/sitemap.xml
+Sitemap: https://code.massoudafrashteh.com/sitemap.xml
