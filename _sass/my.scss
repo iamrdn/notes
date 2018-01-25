@@ -1,0 +1,40 @@
+h2 {
+    font-size: 1.1em;
+}
+
+figure,
+figcaption {
+	margin: 0 auto;
+}
+
+figure, figure iframe, figure .fluid-width-video-wrapper {
+  margin-bottom: 1em;
+}
+
+figure {
+  margin-bottom: 1em;
+}
+
+.page__content {
+  p,
+  li,
+  dl {
+    font-size: 0.810em;
+  }
+}
+
+.greedy-nav {
+  a {
+    display: inherit;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.site-title {
+  img {
+    width: 1em;
+    height: 1em;
+    margin-top: 1px;
+  }
+}
