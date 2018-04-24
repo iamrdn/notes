@@ -205,6 +205,6 @@ public class CustomerIntegrationTest {
 {% endhighlight %}
 
 ### Github repo
-Just [git clone spring-boot-reactive-restful-rdbms][spring-boot-reactive-restful-rdbms] and run it on your Machine.
+Just [git clone spring-boot-reactive-restful-rdbms][spring_boot_reactive_restful_rdbms] and run it on your Machine.
 
-[spring-boot-reactive-restful-rdbms]: https://github.com/massoudAfrashteh/code/tree/master/java/spring-boot-reactive-restful-rdbms
+[spring_boot_reactive_restful_rdbms]: https://github.com/massoudAfrashteh/code/tree/master/java/spring-boot-reactive-restful-rdbms
