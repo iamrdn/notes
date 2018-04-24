@@ -1,5 +1,5 @@
 ---
-title:  "Spring Boot, Webflux, H2, Reactor"
+title:  "Spring Boot 2, Webflux, Reactor, H2"
 date:   2018-04-24 11:00:40 +0330
 tags:
   - spring-boot
