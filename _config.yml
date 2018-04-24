@@ -9,7 +9,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en"
-title                    : "M.A Code Blog"
+title                    : "Massoud Afrashteh Code Blog"
 title_separator          : "-"
 name                     : "Massoud Afrashteh"
 description              : "Sharing Software Development Tips and Experiences, by Massoud Afrashteh."
@@ -86,7 +86,7 @@ analytics:
 author:
   name             : "Massoud Afrashteh"
   avatar           : "/assets/images/bio/massoud-afrashteh-110.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Data lover"
+  bio              : "Java, Python, Data Science lover"
   location         : "Tehran"
   email            :
   uri              :
