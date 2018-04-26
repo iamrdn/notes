@@ -11,7 +11,7 @@ tags:
   - reactor
   - h2
 toc: true
-last_modified_at: 2018-04-24T11:00:40-03:30
+last_modified_at: 2018-04-26T19:33:40-03:30
 ---
 This is a Reactive RESTful Web Service with Integration (End-To-End) test.
 
@@ -25,7 +25,7 @@ This is a Reactive RESTful Web Service with Integration (End-To-End) test.
 - JUnit 4
 - Reactor
 
-### Step 1: Add Maven Dependencies to our project
+### Maven Dependencies
 It's the time to create a Maven Project and put the below dependencies on your POM.xml file.
 {% highlight xml %}
 <parent>
@@ -90,7 +90,7 @@ It's the time to create a Maven Project and put the below dependencies on your P
     </dependency>
 {% endhighlight %}
 
-### Step 2: Database configurations with application.yml
+### Database configurations (application.yml)
 I used H2 to make this application more independent.
 {% highlight yaml %}
 spring:
@@ -109,7 +109,7 @@ spring:
       path: /console
 {% endhighlight %}
 
-### Step 3: Part of CustomerController.java
+### CustomerController.java
 {% highlight java %}
 @RestController
 @RequestMapping("/customers")
@@ -127,7 +127,7 @@ public class CustomerController {
 }
 {% endhighlight %}
 
-### Step 4: Part of CustomerServiceImpl.java
+### CustomerServiceImpl.java
 {% highlight java %}
 @Service
 @Transactional
@@ -144,7 +144,7 @@ public class CustomerServiceImpl implements CustomerService {
 }
 {% endhighlight %}
 
-### Step 5: CustomerRepository.java
+### CustomerRepository.java
 As you see our repository is not reactive, because Spring does not support reactive interface "ReactiveCrudRepository" for RDBMS, but we made a web and service layer reactive! If you need an entire Reactive application you should use NoSQLs (Redis, MongoDB, Cassandra, ...).
 {% highlight java %}
 @Repository
@@ -164,7 +164,7 @@ public class Application {
 {% endhighlight %}
 It's time to see what we have done, we can just run a Boot project with **mvn spring-boot:run** or use any IDE you like. If your Application is running on PORT 8080 just open [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html) then you will see all Restful Endpoints (/customers).
 
-### Step 6: Part of CustomerIntegrationTest.java
+### CustomerIntegrationTest.java
 This in an actual End-To-End test, That means we test the entire application like a user but with codes.
 {% highlight java %}
 @RunWith(SpringRunner.class)
