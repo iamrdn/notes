@@ -89,7 +89,7 @@ author:
   bio              : "Java, Python, Data Science lover"
   location         : "Tehran"
   email            :
-  uri              : /cv
+  uri              : 
   home             : /
   bitbucket        :
   codepen          :
@@ -114,8 +114,6 @@ author:
   weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
-
-
 
 # Reading Files
 include:

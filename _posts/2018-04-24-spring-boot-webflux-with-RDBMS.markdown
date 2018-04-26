@@ -13,8 +13,7 @@ tags:
 toc: true
 last_modified_at: 2018-04-26T19:33:40-03:30
 ---
-Processing Real-Time data is a big challenge then Reactive tools come and help us to make an Asynchronous application without being involved with Low-Level     
-headaches. This is a Reactive RESTful Web Service with Integration (End-To-End) test.
+Processing Real-Time data is a big challenge then Reactive tools come and help us to make an Asynchronous application without being involved with Low-Level headaches. This is a Reactive RESTful Web Service with Integration (End-To-End) test.
 
 ### Tech Stack
 - Java 8
