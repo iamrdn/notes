@@ -1,6 +1,6 @@
 ---
 title:  "Spring Boot 2, Webflux, Reactor, H2"
-date:   2018-04-24 11:00:40 +0330
+date:   2018-04-26 19:33:40 +0330
 tags:
   - spring-boot
   - webflux
@@ -151,7 +151,7 @@ As you see our repository is not reactive, because Spring does not support react
 public interface CustomerRepository extends JpaRepository<Customer, Long> {}
 {% endhighlight %}
 
-### Step 5: Run Spring Boot and Swagger UI
+### Run Spring Boot
 To make WebFlux Enabled we need "@EnableWebFlux" annotation.
 {% highlight java %}
 @EnableWebFlux
