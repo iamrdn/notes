@@ -17,7 +17,7 @@ We always have been using abstraction to make things more robust, reusable, and 
 ## Containers
 A container is a runtime instance of an image. The image will be in memory when executed and runs completely isolated from the host environment, also image accesses host files and ports which configured in container config file.
 
-## Container vs Object
+## Containers vs Objects
 As matter of fact a container likes an object in OOP and as you know objects need classes that to build on the top of.  
 <mark>classes == images</mark>  
 <mark>objects == containers</mark>
@@ -62,7 +62,7 @@ A container is not a complete solution for a production usage, they have followi
 
 As matter of fact, a container just likes a musical instrument, not an Orchestra! this means we should combine it with other technologies on Cloud or anything else. 
 
-## Wait don't go so fast :)
+## Drive slow and enjoy the scenery
 Yeah! we just saw how a single container can help us, in most of the real Enterprise projects we need to communicate between containers. This area is called "Orchestration" which means a bunch of containers which work together. I'll write about them later but first you need to know about containers :)
 
 <figure>
