@@ -90,7 +90,7 @@ It's the time to create a Maven Project and put the below dependencies on your P
     </dependency>
 {% endhighlight %}
 
-### Database configurations (application.yml)
+### DB config (application.yml)
 I used H2 to make this application more independent.
 {% highlight yaml %}
 spring:
