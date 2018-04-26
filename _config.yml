@@ -90,7 +90,7 @@ author:
   location         : "Tehran"
   email            :
   uri              :
-  home             : # null (default), "absolute or relative url to link to author home"
+  home             : /
   bitbucket        :
   codepen          :
   dribbble         :
@@ -114,6 +114,7 @@ author:
   weibo            :
   xing             :
   youtube          : # "https://youtube.com/c/MichaelRoseDesign"
+  
 
 
 # Reading Files
