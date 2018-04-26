@@ -86,10 +86,10 @@ analytics:
 author:
   name             : "Massoud Afrashteh"
   avatar           : "/assets/images/bio/massoud-afrashteh-110.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Java, Python, \nData Science lover"
+  bio              : "Java, Python, Data Science lover"
   location         : "Tehran"
   email            :
-  uri              :
+  uri              : /cv
   home             : /
   bitbucket        :
   codepen          :
