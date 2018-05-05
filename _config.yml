@@ -9,7 +9,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "en"
-title                    : "Massoud Afrashteh Code Blog"
+title                    : "Massoud Afrashteh"
 title_separator          : "-"
 name                     : "Massoud Afrashteh"
 description              : "Sharing Software Development Tips and Experiences, by Massoud Afrashteh."
