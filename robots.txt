@@ -1,3 +1,4 @@
----
----
-Sitemap: {{ site.production_url }}/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://code.massoudafrashteh.com/sitemap.xml
